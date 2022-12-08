@@ -4,17 +4,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
+   /**
+     * This is a calculator capable of computing a metric distance value from an expression that contains different
+     * scales and systems
+     * Output is specified by the user.
+     * <p>
+     * Only Addition and subtraction is allowed.
+     * <p>
+     * Supported formats: mm, cm, dm, m, km.
+     * <p>
+     * Output is returned in lowest unit.
+     * <p>
+     * Ignore groups where the value characters are not numbers, the unit of measure is missing or the format is not
+     * supported. If there are 2 signs for a group, the first one is ignored.
+     */
 
    
     public class SumInMillimeters {
-        /*
-         * Pattern explained
-         * (\\+|\\-)      -> plus or minus character (\\ escapes the character => it refers to the actual character not the regex operator)
-         * (\\+|\\-)?     -> repeats 0 or 1 times
-         * ( +)           -> character space " " repeats 0 or more times
-         * (\\d+)         -> there's a digit that repeats 1 or more times
-         * (mm|cm|...|m)  -> one of the following sets of characters mm or cm or dm or km or m
-         */
 
         private static String PATTERN_REGEX = "(\\+|\\-)?( *)(\\d+)( *)(mm|cm|dm|km|m)";
 
